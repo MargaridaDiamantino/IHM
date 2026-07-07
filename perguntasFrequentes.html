@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="Media/imagem_logo.png">
+    <link rel="stylesheet" href="CSS/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perguntas Frequentes (FAQ) | Hotel Lameira, Luanda</title>
+    <meta name="description" content="Tire as suas dúvidas sobre reservas, check-in, cancelamentos, comodidades e contactos do Hotel Lameira em Luanda, Angola.">
+    <meta name="keywords" content="FAQ hotel Luanda, perguntas frequentes hotel, reservas Angola, check-in hotel">
+
+    <link rel="stylesheet" href="CSS/perguntasFrequentes.css">
+    <link rel="stylesheet" href="CSS/site-layout.css">
+    <script src="JS/site.js"></script>
+</head>
+<body class="bg-dark-brown">
+
+    <header id="site-header"></header>
+
+    <main class="full-page-container">
+
+        <div class="decorator-bar top-right"></div>
+        <div class="decorator-bar bottom-right"></div>
+
+        <!-- ── HERO ───────────────────────────────── -->
+        <header class="faq-hero">
+            <nav class="breadcrumb" aria-label="Navegação estrutural">
+                <a href="index.html">Home</a>
+                <span aria-hidden="true">/</span>
+                <span aria-current="page">Perguntas Frequentes</span>
+            </nav>
+
+            <span class="faq-label">Estamos aqui para ajudar</span>
+            <h1 class="display-title">Perguntas e Respostas</h1>
+            <p class="faq-subtitle">Tudo o que precisa de saber antes da sua estadia no Hotel Lameira.</p>
+
+            <!-- BARRA DE PESQUISA -->
+            <div class="faq-search">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input type="text" id="faqSearchInput" placeholder="Pesquisar uma pergunta... (ex: check-in, animais, Wi-Fi)" aria-label="Pesquisar nas perguntas frequentes">
+            </div>
+
+            <!-- FILTROS POR CATEGORIA -->
+            <div class="faq-filters" role="tablist" aria-label="Filtrar por categoria">
+                <button class="faq-filter active" data-filter="todas">Todas</button>
+                <button class="faq-filter" data-filter="reservas">Reservas</button>
+                <button class="faq-filter" data-filter="estadia">Estadia</button>
+                <button class="faq-filter" data-filter="comodidades">Comodidades</button>
+                <button class="faq-filter" data-filter="contacto">Contacto</button>
+            </div>
+        </header>
+
+        <!-- ── LISTA DE PERGUNTAS ─────────────────── -->
+        <section class="faq-content">
+
+            <div class="faq-list" id="faqList">
+
+                <div class="faq-item" data-category="reservas">
+                    <button class="faq-question" aria-expanded="false">
+                        Como fazer uma reserva?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pode reservar diretamente pelo nosso site, por telefone, WhatsApp ou presencialmente na receção do hotel.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="reservas">
+                    <button class="faq-question" aria-expanded="false">
+                        É permitido cancelar a reserva?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim, conforme os termos e condições da reserva escolhida. Tarifas flexíveis permitem cancelamento gratuito até 24h antes da chegada. Consulte os <a href="./TermosCondicoes.html">Termos e Condições</a> completos.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="reservas">
+                    <button class="faq-question" aria-expanded="false">
+                        Posso alterar as datas da minha reserva?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim, sujeito a disponibilidade. Contacte-nos com antecedência através da nossa <a href="./contactos.html">página de contactos</a> para verificarmos novas datas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="estadia">
+                    <button class="faq-question" aria-expanded="false">
+                        Qual é o horário de check-in e check-out?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O check-in começa às 14h00 e o check-out deve ser feito até às 12h00. Horários alternativos estão sujeitos a disponibilidade.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="estadia">
+                    <button class="faq-question" aria-expanded="false">
+                        O pequeno-almoço está incluído?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Algumas reservas incluem pequeno-almoço. Verifique os detalhes da sua tarifa no momento da reserva ou pergunte à receção.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="estadia">
+                    <button class="faq-question" aria-expanded="false">
+                        Animais de estimação são permitidos?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Algumas áreas e quartos específicos permitem animais de estimação, sujeito a disponibilidade. Consulte previamente a receção.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="comodidades">
+                    <button class="faq-question" aria-expanded="false">
+                        O hotel possui estacionamento?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim, oferecemos estacionamento privado e gratuito para todos os nossos hóspedes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="comodidades">
+                    <button class="faq-question" aria-expanded="false">
+                        O hotel possui acesso Wi-Fi?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim, disponibilizamos Wi-Fi gratuito e de alta velocidade em todas as áreas do hotel, incluindo quartos e espaços comuns.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="comodidades">
+                    <button class="faq-question" aria-expanded="false">
+                        Existe serviço de restaurante?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim, o hotel possui restaurante próprio com pratos da cozinha nacional e internacional, aberto das 07h00 às 23h00.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="comodidades">
+                    <button class="faq-question" aria-expanded="false">
+                        O hotel possui piscina?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim, temos uma piscina moderna e área de lazer dedicada para o relaxamento dos hóspedes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="contacto">
+                    <button class="faq-question" aria-expanded="false">
+                        Como entrar em contacto com o hotel?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Pode contactar-nos por telefone, WhatsApp, e-mail ou através da nossa <a href="./contactos.html">página de contactos</a>. A nossa receção está disponível 24 horas por dia.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="contacto">
+                    <button class="faq-question" aria-expanded="false">
+                        Como posso saber mais sobre as políticas do hotel?
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Consulte a nossa <a href="./TermosCondicoes.html">página de Termos e Condições</a> e a <a href="./politaDePrivacidade.html">Política de Privacidade</a> para mais informações.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ESTADO VAZIO (sem resultados na pesquisa) -->
+            <div class="faq-empty" id="faqEmpty" hidden>
+                <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+                <p>Nenhuma pergunta encontrada. Tente outra palavra-chave ou <a href="./contactos.html">contacte-nos directamente</a>.</p>
+            </div>
+
+        </section>
+
+        <!-- ── CTA FINAL ──────────────────────────── -->
+        <div class="faq-cta-banner">
+            <p>Não encontrou a resposta que procurava?</p>
+            <a href="./contactos.html" class="faq-cta-btn">
+                Fale Connosco <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <footer id="site-footer"></footer>
+
+    <script>
+        (function () {
+            const items = document.querySelectorAll('.faq-item');
+            const filters = document.querySelectorAll('.faq-filter');
+            const searchInput = document.getElementById('faqSearchInput');
+            const emptyState = document.getElementById('faqEmpty');
+            let activeFilter = 'todas';
+
+            /* ── ACORDEÃO ─────────────────────────── */
+            document.querySelectorAll('.faq-question').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const item = this.closest('.faq-item');
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = this.querySelector('.faq-icon i');
+                    const isOpen = item.classList.contains('open');
+
+                    document.querySelectorAll('.faq-item.open').forEach(function (openItem) {
+                        openItem.classList.remove('open');
+                        openItem.querySelector('.faq-answer').style.maxHeight = null;
+                        openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                        openItem.querySelector('.faq-icon i').className = 'fa-solid fa-plus';
+                    });
+
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        this.setAttribute('aria-expanded', 'true');
+                        icon.className = 'fa-solid fa-minus';
+                    }
+                });
+            });
+
+            /* ── FILTRO POR CATEGORIA ─────────────── */
+            filters.forEach(function (filterBtn) {
+                filterBtn.addEventListener('click', function () {
+                    filters.forEach(function (f) { f.classList.remove('active'); });
+                    this.classList.add('active');
+                    activeFilter = this.dataset.filter;
+                    applyFilters();
+                });
+            });
+
+            /* ── PESQUISA EM TEMPO REAL ───────────── */
+            searchInput.addEventListener('input', applyFilters);
+
+            function applyFilters() {
+                const rawQuery = searchInput.value.trim().toLowerCase();
+                // Normaliza hífens/espaços para que "wifi" também encontre "Wi-Fi"
+                const query = rawQuery.replace(/[\s-]+/g, '');
+                let visibleCount = 0;
+
+                items.forEach(function (item) {
+                    const category = item.dataset.category;
+                    const text = item.textContent.toLowerCase().replace(/[\s-]+/g, '');
+
+                    const matchesCategory = activeFilter === 'todas' || category === activeFilter;
+                    const matchesSearch = query === '' || text.includes(query);
+
+                    if (matchesCategory && matchesSearch) {
+                        item.style.display = '';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                        // Fechar perguntas escondidas para evitar respostas "fantasma" abertas
+                        item.classList.remove('open');
+                        const answer = item.querySelector('.faq-answer');
+                        if (answer) answer.style.maxHeight = null;
+                    }
+                });
+
+                emptyState.hidden = visibleCount !== 0;
+            }
+        })();
+    </script>
+
+</body>
+</html>

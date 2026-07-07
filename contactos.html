@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="Media/imagem_logo.png">
+    <link rel="stylesheet" href="CSS/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contactos e Reservas | Hotel Lameira, Luanda — Angola</title>
+    <meta name="description" content="Contacte o Hotel Lameira em Luanda para reservas, informações ou pedidos especiais. Telefone, e-mail, WhatsApp e formulário de contacto disponíveis 24 horas.">
+    <meta name="keywords" content="hotel contactos Luanda, telefone hotel Angola, reservas hotel Lameira, localização hotel Luanda">
+
+    <link rel="stylesheet" href="CSS/contactos.css">
+    <link rel="stylesheet" href="CSS/site-layout.css">
+    <script src="JS/site.js"></script>
+</head>
+<body>
+
+    <header id="site-header"></header>
+
+    <!-- ══ HERO ══════════════════════════════════════════ -->
+    <header class="contactos-hero">
+        <div class="contactos-hero-overlay"></div>
+        <img src="Media/imagemContacos.jpg" alt="Receção do Hotel Lameira em Luanda" class="contactos-hero-img">
+        <div class="contactos-hero-content">
+            <nav class="breadcrumb" aria-label="Navegação estrutural">
+                <a href="index.html">Home</a>
+                <span aria-hidden="true">/</span>
+                <span aria-current="page">Contactos</span>
+            </nav>
+            <span class="contactos-hero-label">Estamos aqui para ajudar</span>
+            <h1>Fale Connosco</h1>
+            <p>Reservas, dúvidas ou pedidos especiais — a nossa equipa em Luanda responde rapidamente, todos os dias da semana.</p>
+        </div>
+    </header>
+
+    <!-- ══ CARTÕES DE CONTACTO RÁPIDO ══════════════════════ -->
+    <section class="quick-contact">
+        <a href="tel:+244923000000" class="quick-card">
+            <div class="quick-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
+            <h3>Telefone</h3>
+            <p>+244 923 000 000</p>
+            <span class="quick-link">Ligar agora →</span>
+        </a>
+
+        <a href="https://wa.me/244923000000" target="_blank" rel="noopener noreferrer" class="quick-card">
+            <div class="quick-icon"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
+            <h3>WhatsApp</h3>
+            <p>Resposta em poucos minutos</p>
+            <span class="quick-link">Enviar mensagem →</span>
+        </a>
+
+        <a href="mailto:reservas@hotellameira.ao" class="quick-card">
+            <div class="quick-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></div>
+            <h3>E-mail</h3>
+            <p>reservas@hotellameira.ao</p>
+            <span class="quick-link">Escrever e-mail →</span>
+        </a>
+
+        <a href="https://maps.google.com/?q=Luanda,Angola" target="_blank" rel="noopener noreferrer" class="quick-card">
+            <div class="quick-icon"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+            <h3>Endereço</h3>
+            <p>Rua Major Kanhangulo, Luanda</p>
+            <span class="quick-link">Ver no mapa →</span>
+        </a>
+    </section>
+
+    <!-- ══ FORMULÁRIO + INFO ══════════════════════════════ -->
+    <main class="contactos-main">
+
+        <section class="form-side">
+            <span class="section-label">Envie-nos uma mensagem</span>
+            <h2>Vamos planear a sua estadia</h2>
+            <p class="form-intro">Preencha o formulário e a nossa equipa de reservas entra em contacto consigo em até 24 horas.</p>
+
+            <form class="hotel-contact-form" id="contactForm" action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nome completo</label>
+                        <input type="text" id="name" name="name" placeholder="O seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+244 9XX XXX XXX">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="O seu endereço de e-mail" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkin">Data de chegada</label>
+                        <input type="date" id="checkin" name="checkin">
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Hóspedes</label>
+                        <select id="guests" name="guests">
+                            <option value="1">1 hóspede</option>
+                            <option value="2" selected>2 hóspedes</option>
+                            <option value="3">3 hóspedes</option>
+                            <option value="4+">4 ou mais</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Como podemos tornar a sua futura estadia memorável?" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-hotel-luxo">
+                    Enviar Mensagem <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                </button>
+
+                <p class="form-msg" id="formMsg" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <aside class="info-side">
+
+            <div class="info-card">
+                <h3><i class="fa-solid fa-clock" aria-hidden="true"></i> Horário de Atendimento</h3>
+                <ul class="hours-list">
+                    <li><span>Receção</span><strong>24 horas / 7 dias</strong></li>
+                    <li><span>Reservas (telefone)</span><strong>08h00 — 20h00</strong></li>
+                    <li><span>Restaurante</span><strong>07h00 — 23h00</strong></li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Antes de Contactar</h3>
+                <ul class="mini-faq">
+                    <li>
+                        <strong>Como faço uma reserva?</strong>
+                        <p>Pelo formulário, telefone ou WhatsApp — confirmamos em poucas horas.</p>
+                    </li>
+                    <li>
+                        <strong>Qual o horário de check-in?</strong>
+                        <p>A partir das 14h00. Consulte mais em <a href="./perguntasFrequentes.html">Perguntas Frequentes</a>.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-card map-card">
+                <h3><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i> Como Chegar</h3>
+                <div class="map-embed">
+                    <iframe
+                        title="Localização do Hotel Lameira em Luanda, Angola"
+                        src="https://www.google.com/maps?q=Luanda,Angola&output=embed"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <a href="https://maps.google.com/?q=Luanda,Angola" target="_blank" rel="noopener noreferrer" class="map-link">
+                    Abrir no Google Maps <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer id="site-footer"></footer>
+
+    <script>
+        // Feedback simples do formulário (sem back-end ligado)
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const msg = document.getElementById('formMsg');
+            msg.textContent = 'Mensagem enviada! A nossa equipa entrará em contacto consigo em breve.';
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
