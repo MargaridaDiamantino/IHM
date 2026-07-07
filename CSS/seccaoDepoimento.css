@@ -1,14 +1,10 @@
-/* =============================================
-   DEPOIMENTOS — Hotel Lameira
-   ============================================= */
-
 #seccaoDepoimento {
     width: 100%;
     padding: 100px 8%;
     position: relative;
+    background-color: var(--cor-fundo-alt);
 }
 
-/* ── CABEÇALHO ────────────────────────────── */
 .dep-header {
     text-align: center;
     margin-bottom: 60px;
@@ -55,14 +51,12 @@
     color: var(--cor-texto);
 }
 
-/* ── GRID DE CARDS ────────────────────────── */
 #depoimentos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 
-/* ── CARD INDIVIDUAL ──────────────────────── */
 .dep-card {
     background-color: var(--cor-superficie);
     border: 1px solid var(--cor-borda);
@@ -80,7 +74,6 @@
     border-color: rgba(196, 139, 88, 0.40);
 }
 
-/* SÍMBOLO DE CITAÇÃO */
 .dep-quote-icon {
     font-family: Georgia, serif;
     font-size: 3.5rem;
@@ -92,7 +85,6 @@
     user-select: none;
 }
 
-/* TEXTO DO DEPOIMENTO */
 .dep-text {
     font-size: 0.9rem;
     line-height: 1.8;
@@ -102,14 +94,12 @@
     color: var(--cor-texto);
 }
 
-/* ESTRELAS */
 .dep-stars-row {
     color: var(--cor-secundaria);
     font-size: 0.95rem;
     letter-spacing: 2px;
 }
 
-/* AUTOR */
 .dep-author {
     display: flex;
     align-items: center;
@@ -119,7 +109,6 @@
     border-top: 1px solid var(--cor-borda);
 }
 
-/* AVATAR COM INICIAIS */
 .dep-avatar {
     width: 42px;
     height: 42px;
@@ -135,7 +124,6 @@
     letter-spacing: 0.05em;
 }
 
-/* INFO DO AUTOR */
 .dep-author-info {
     display: flex;
     flex-direction: column;
@@ -154,7 +142,6 @@
     color: var(--cor-texto);
 }
 
-/* ── RESPONSIVIDADE ───────────────────────── */
 @media (max-width: 1200px) {
     #depoimentos {
         grid-template-columns: repeat(2, 1fr);

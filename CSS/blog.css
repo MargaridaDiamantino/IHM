@@ -1,5 +1,3 @@
-/* Variáveis de cor agora centralizadas em theme.css (suporta light/dark mode) */
-
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +10,6 @@ body {
     line-height: 1.6;
 }
 
-/* HEADER DO BLOG */
 .blog-wrapper {
     padding: 60px 8% 60px;
     position: relative;
@@ -30,7 +27,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* GRID DO BLOG */
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -39,13 +35,15 @@ body {
     position: relative;
 }
 
-/* CARDS DO BLOG */
 .blog-card {
     background-color: var(--cor-superficie);
     border-radius: 15px;
     overflow: hidden;
     transition: transform 0.3s ease;
     border: 1px solid var(--cor-borda);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .blog-card:hover {
@@ -76,6 +74,9 @@ body {
 
 .blog-info {
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .post-date {
@@ -101,9 +102,9 @@ body {
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
+    margin-top: auto;
 }
 
-/* DECORADORES*/
 .decorator {
     position: absolute;
     background-color: var(--accent-orange);
@@ -123,7 +124,6 @@ body {
     height: 300px;
 }
 
-/* RESPONSIVIDADE */
 @media (max-width: 768px) {
     .blog-title { font-size: 2.5rem; }
     .decorator { display: none; }

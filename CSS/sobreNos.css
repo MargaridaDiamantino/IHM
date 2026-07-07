@@ -1,14 +1,9 @@
-/* =============================================
-   SOBRE NÓS — Hotel Lameira
-   ============================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ── HERO: TEXTO + IMAGEM ── */
 .sobre {
     width: 100%;
     min-height: 100vh;
@@ -21,8 +16,6 @@
     overflow: hidden;
 }
 
-/* TEXTO */
-
 .conteudo {
     width: 50%;
     padding-left: 70px;
@@ -30,7 +23,6 @@
     position: relative;
 }
 
-/* NÚMERO DECORATIVO DE FUNDO */
 .sobre-bg-number {
     position: absolute;
     top: -40px;
@@ -82,7 +74,6 @@
     opacity: 0.88;
 }
 
-/* CITAÇÃO DESTACADA */
 .sobre-quote {
     position: relative;
     z-index: 1;
@@ -109,8 +100,6 @@
     color: var(--cor-texto);
 }
 
-/* IMAGEM */
-
 .imagem {
     width: 45%;
     height: 100vh;
@@ -121,7 +110,6 @@
     perspective: 1400px;
 }
 
-/* MOLDURA COM EFEITO TILT 3D */
 .imagem-frame {
     position: relative;
     width: 88%;
@@ -141,7 +129,6 @@
     display: block;
 }
 
-/* SELO FLUTUANTE DE AVALIAÇÃO */
 .imagem-badge {
     position: absolute;
     bottom: 26px;
@@ -176,7 +163,6 @@
     opacity: 0.65;
 }
 
-/* ETIQUETA DE LOCALIZAÇÃO */
 .imagem-tag-top {
     position: absolute;
     top: 22px;
@@ -198,8 +184,6 @@
     color: var(--cor-secundaria);
 }
 
-/* BARRA LARANJA */
-
 .barra {
     width: 80px;
     height: 360px;
@@ -212,9 +196,6 @@
     z-index: 1;
 }
 
-/* BOTÃO — laranja da marca com texto castanho escuro fixo,
-   garantindo contraste tanto no estado normal como no hover,
-   independentemente do tema activo. */
 .btn {
     display: inline-block;
     background-color: var(--cor-secundaria);
@@ -244,10 +225,6 @@
 .btn:active {
     transform: translateY(-1px);
 }
-
-/* =============================================
-   ESTATÍSTICAS
-   ============================================= */
 
 .sobre-stats {
     display: flex;
@@ -294,10 +271,6 @@
     background-color: var(--cor-borda);
     flex-shrink: 0;
 }
-
-/* =============================================
-   VALORES
-   ============================================= */
 
 .sobre-valores {
     width: 100%;
@@ -360,10 +333,6 @@
     color: var(--cor-texto);
     opacity: 0.78;
 }
-
-/* =============================================
-   RESPONSIVO
-   ============================================= */
 
 @media (max-width: 1200px) {
     .valores-grid {

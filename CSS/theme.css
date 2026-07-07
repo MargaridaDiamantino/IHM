@@ -1,12 +1,5 @@
-/* =================================================================
-   THEME.CSS — Variáveis partilhadas de Light / Dark Mode
-   Hotel Lameira
-   Este ficheiro deve ser importado ANTES de qualquer outro CSS
-   da página, para que as variáveis estejam disponíveis a tempo.
-   ================================================================= */
-
 :root {
-    /* ── DARK MODE (tema por omissão do site) ── */
+
     --cor-fundo:        #442822;
     --cor-fundo-alt:    #2e1a14;
     --cor-superficie:   rgba(255, 255, 255, 0.04);
@@ -21,10 +14,7 @@
     --fonte-principal: 'Montserrat', sans-serif;
     --fonte-titulo:    'Playfair Display', serif;
 
-    /* ── ALIASES (compatibilidade com nomes usados em páginas
-         individuais: bg-brown, accent-orange, text-white, etc.)
-         Mantidos para que TODAS as páginas sigam o mesmo tema,
-         sem precisar de reescrever cada ficheiro CSS antigo. ── */
+
     --bg-brown:          var(--cor-fundo);
     --accent-orange:     var(--cor-secundaria);
     --accent-terracota:  var(--cor-secundaria);
@@ -32,7 +22,6 @@
     --text-white:        var(--cor-texto);
 }
 
-/* ── LIGHT MODE ── activado via atributo no <html> ── */
 html[data-theme="light"] {
     --cor-fundo:        #faf6f2;
     --cor-fundo-alt:    #f0e6db;
@@ -46,7 +35,6 @@ html[data-theme="light"] {
     --sombra-card:      0 4px 15px rgba(46, 26, 20, 0.08);
 }
 
-/* Transição suave ao alternar tema */
 html, body {
     transition: background-color 0.35s ease, color 0.35s ease;
 }
@@ -55,14 +43,6 @@ html, body {
     transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
-/* =================================================================
-   REDE DE SEGURANÇA DE CONTRASTE
-   --------------------------------------------------------------
-   Garante que título e texto corrente sigam sempre a cor do tema,
-   mesmo que um ficheiro CSS de página específica se tenha esquecido
-   de declarar "color" explicitamente. Qualquer regra mais específica
-   definida nos CSS de página continua a ter prioridade normal.
-   ================================================================= */
 body, h1, h2, h3, h4, h5, h6, p, span, li, label {
     color: var(--cor-texto);
 }

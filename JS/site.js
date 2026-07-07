@@ -1,25 +1,8 @@
-/* =================================================================
-   SITE.JS — Hotel Lameira
-   Funcionalidades partilhadas por todas as páginas:
-   - Injeção do header e footer (substitui o <iframe>)
-   - Menu de navegação responsivo (hambúrguer em mobile)
-   - Alternância de tema claro/escuro (persistente)
-   - Botão "voltar ao topo"
-   - Marcação do link activo no menu
-   ================================================================= */
-
 (function () {
     "use strict";
 
-    /* ---------- CAMINHOS RELATIVOS ----------
-       Como o site usa pastas HTML/CSS/Media na raiz,
-       todas as páginas estão em /HTML/, por isso os
-       caminhos relativos partem sempre de ../ */
     const BASE = "";
 
-    /* =================================================
-       1. HTML DO HEADER
-       ================================================= */
     function getHeaderHTML() {
         return `
         <div class="site-header-inner">
@@ -45,12 +28,10 @@
                     <span></span><span></span><span></span>
                 </button>
             </div>
-        </div>`;
+        </div>
+        <div class="nav-overlay" id="navOverlay"></div>`;
     }
 
-    /* =================================================
-       2. HTML DO FOOTER
-       ================================================= */
     function getFooterHTML() {
         return `
         <div class="footer-inner">
@@ -107,9 +88,6 @@
         </div>`;
     }
 
-    /* =================================================
-       3. INJETAR HEADER E FOOTER NA PÁGINA
-       ================================================= */
     function injectLayout() {
         const headerMount = document.getElementById("site-header");
         const footerMount = document.getElementById("site-footer");
@@ -122,9 +100,6 @@
         }
     }
 
-    /* =================================================
-       4. MARCAR LINK ACTIVO NO MENU
-       ================================================= */
     function highlightActiveLink() {
         const path = window.location.pathname;
         const fileName = path.substring(path.lastIndexOf("/") + 1).replace(".html", "") || "home";
@@ -136,36 +111,54 @@
         });
     }
 
-    /* =================================================
-       5. MENU MOBILE (hambúrguer)
-       ================================================= */
     function setupMobileMenu() {
         const navToggle = document.getElementById("navToggle");
         const siteNav = document.getElementById("siteNav");
+        const navOverlay = document.getElementById("navOverlay");
 
         if (!navToggle || !siteNav) return;
 
-        navToggle.addEventListener("click", function () {
-            const isOpen = siteNav.classList.toggle("nav-open");
-            navToggle.classList.toggle("active");
-            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-            document.body.style.overflow = isOpen ? "hidden" : "";
+        function openMenu() {
+            siteNav.classList.add("nav-open");
+            navToggle.classList.add("active");
+            navToggle.setAttribute("aria-expanded", "true");
+            if (navOverlay) navOverlay.classList.add("nav-overlay-visible");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeMenu() {
+            siteNav.classList.remove("nav-open");
+            navToggle.classList.remove("active");
+            navToggle.setAttribute("aria-expanded", "false");
+            if (navOverlay) navOverlay.classList.remove("nav-overlay-visible");
+            document.body.style.overflow = "";
+        }
+
+        navToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
+            const isOpen = siteNav.classList.contains("nav-open");
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
 
-        // Fechar o menu ao clicar num link (mobile)
         siteNav.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-                siteNav.classList.remove("nav-open");
-                navToggle.classList.remove("active");
-                navToggle.setAttribute("aria-expanded", "false");
-                document.body.style.overflow = "";
-            });
+            link.addEventListener("click", closeMenu);
+        });
+
+        if (navOverlay) {
+            navOverlay.addEventListener("click", closeMenu);
+        }
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && siteNav.classList.contains("nav-open")) {
+                closeMenu();
+            }
         });
     }
 
-    /* =================================================
-       6. TEMA CLARO / ESCURO (persistente via localStorage)
-       ================================================= */
     function setupThemeToggle() {
         const toggleBtn = document.getElementById("themeToggle");
         const icon = document.getElementById("themeIcon");
@@ -184,14 +177,11 @@
             document.documentElement.setAttribute("data-theme", newTheme);
             try {
                 localStorage.setItem("hotelLameiraTheme", newTheme);
-            } catch (e) { /* localStorage indisponível — ignora silenciosamente */ }
+            } catch (e) {}
             applyIcon(newTheme);
         });
     }
 
-    /* =================================================
-       7. BOTÃO VOLTAR AO TOPO
-       ================================================= */
     function setupBackToTop() {
         const btn = document.createElement("button");
         btn.id = "backToTopBtn";
@@ -213,9 +203,6 @@
         });
     }
 
-    /* =================================================
-       8. NEWSLETTER — feedback simples (sem back-end)
-       ================================================= */
     function setupNewsletter() {
         document.addEventListener("submit", function (e) {
             if (e.target && e.target.id === "newsletterForm") {
@@ -229,11 +216,6 @@
         });
     }
 
-    /* =================================================
-       9. BANNER DE COOKIES (consentimento RGPD)
-       Só aparece se o utilizador ainda não decidiu.
-       A aceitação activa o tracking (ver loadAnalytics).
-       ================================================= */
     function setupCookieBanner() {
         const decision = localStorage.getItem("hotelLameiraCookieConsent");
 
@@ -257,8 +239,6 @@
             </div>`;
         document.body.appendChild(banner);
 
-        // Levanta o botão "voltar ao topo" enquanto o banner estiver visível,
-        // para que um nunca bloqueie cliques no outro.
         const backToTop = document.getElementById("backToTopBtn");
         if (backToTop) backToTop.classList.add("banner-open");
 
@@ -283,56 +263,18 @@
         });
     }
 
-    /* =================================================
-       10. ANALYTICS / PIXEL DE RASTREAMENTO
-       --------------------------------------------------
-       PRONTO PARA PRODUÇÃO: troque "G-XXXXXXXXXX" pelo
-       ID real do Google Analytics (GA4) e/ou descomente
-       o bloco do Meta Pixel com o seu Pixel ID.
-       Só corre depois do utilizador aceitar os cookies.
-       ================================================= */
     function loadAnalytics() {
         if (window.__analyticsLoaded) return;
         window.__analyticsLoaded = true;
 
-        /* ---- Google Analytics (GA4) ----
-        const gaScript = document.createElement("script");
-        gaScript.async = true;
-        gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX";
-        document.head.appendChild(gaScript);
-
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ window.dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-        */
-
-        /* ---- Meta Pixel (Facebook/Instagram Ads) ----
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-        document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'SEU_PIXEL_ID');
-        fbq('track', 'PageView');
-        */
-
         console.log("[Hotel Lameira] Consentimento de analytics aceite — pronto para activar GA4 / Meta Pixel.");
     }
 
-    /* =================================================
-       11. ANIMAÇÃO DE REVELAÇÃO AO SCROLL
-       --------------------------------------------------
-       Qualquer elemento com a classe "bemvindo-reveal" aparece
-       com um fade + deslize suave quando entra no viewport.
-       Usa Intersection Observer (leve, sem dependências).
-       ================================================= */
     function setupScrollReveal() {
         const items = document.querySelectorAll('.bemvindo-reveal');
         if (!items.length) return;
 
         if (!('IntersectionObserver' in window)) {
-            // Navegador sem suporte: mostra tudo de imediato
             items.forEach(function (el) { el.classList.add('is-visible'); });
             return;
         }
@@ -349,9 +291,6 @@
         items.forEach(function (el) { observer.observe(el); });
     }
 
-    /* =================================================
-       12. CONTADOR ANIMADO (ex: "98% hóspedes que recomendam")
-       ================================================= */
     function setupAnimatedCounters() {
         const counters = document.querySelectorAll('[data-count-to]');
         if (!counters.length) return;
@@ -363,7 +302,7 @@
 
             function tick(now) {
                 const progress = Math.min((now - start) / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3); // ease-out cúbico
+                const eased = 1 - Math.pow(1 - progress, 3);
                 el.textContent = Math.round(eased * target);
                 if (progress < 1) {
                     requestAnimationFrame(tick);
@@ -389,9 +328,6 @@
         counters.forEach(function (el) { observer.observe(el); });
     }
 
-    /* =================================================
-       INICIALIZAÇÃO
-       ================================================= */
     document.addEventListener("DOMContentLoaded", function () {
         injectLayout();
         highlightActiveLink();
@@ -405,16 +341,11 @@
     });
 })();
 
-/* =====================================================
-   APLICAR TEMA GUARDADO O MAIS RÁPIDO POSSÍVEL
-   (fora do DOMContentLoaded para evitar "flash" de tema errado)
-   Este bloco corre de imediato quando o <script> é lido no <head>.
-   ===================================================== */
 (function applyStoredThemeEarly() {
     try {
         const saved = localStorage.getItem("hotelLameiraTheme");
         if (saved === "light" || saved === "dark") {
             document.documentElement.setAttribute("data-theme", saved);
         }
-    } catch (e) { /* localStorage indisponível — mantém o tema por omissão */ }
+    } catch (e) {}
 })();

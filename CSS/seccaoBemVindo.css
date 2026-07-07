@@ -1,10 +1,7 @@
-/* ========================= */
-/* SECÇÃO BEM VINDO */
-/* ========================= */
-
 #seccaoBemVindo {
     width: 100%;
     padding: 100px 8%;
+    border-top: 1px solid var(--cor-borda);
 }
 
 .bemvindo-container {
@@ -15,10 +12,6 @@
     gap: 64px;
     align-items: center;
 }
-
-/* ========================= */
-/* COLUNA DE IMAGENS */
-/* ========================= */
 
 .bemvindo-media {
     position: relative;
@@ -48,7 +41,6 @@
     z-index: 2;
 }
 
-/* CONTADOR ANIMADO FLUTUANTE */
 .bemvindo-counter {
     position: absolute;
     top: 24px;
@@ -88,10 +80,6 @@
     line-height: 1.35;
 }
 
-/* ========================= */
-/* ANIMAÇÃO DE REVELAÇÃO AO SCROLL */
-/* ========================= */
-
 .bemvindo-reveal {
     opacity: 0;
     transition: opacity 0.7s ease, transform 0.7s ease;
@@ -115,7 +103,6 @@
     transform: translateY(0) translateX(0);
 }
 
-/* Sem JavaScript ou sem suporte a animações: garante visibilidade total */
 @media (prefers-reduced-motion: reduce) {
     .bemvindo-reveal {
         opacity: 1;
@@ -123,10 +110,6 @@
         transition: none;
     }
 }
-
-/* ========================= */
-/* TEXTO */
-/* ========================= */
 
 #TextoBoasVindas {
     position: relative;
@@ -162,10 +145,6 @@
     max-width: 620px;
     margin: 0 0 48px;
 }
-
-/* ========================= */
-/* GRELHA DE DESTAQUES (Acomodações, Gastronomia, Lazer, Experiência) */
-/* ========================= */
 
 .bemvindo-grid {
     display: grid;
@@ -206,10 +185,6 @@
     opacity: 0.78;
     color: var(--cor-texto);
 }
-
-/* ========================= */
-/* RESPONSIVIDADE */
-/* ========================= */
 
 @media (max-width: 1100px) {
     .bemvindo-container {

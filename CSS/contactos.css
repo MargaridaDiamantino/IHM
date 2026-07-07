@@ -1,7 +1,3 @@
-/* =============================================
-   CONTACTOS — Hotel Lameira
-   ============================================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +10,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* ══ HERO ════════════════════════════════════ */
 .contactos-hero {
     position: relative;
     height: 56vh;
@@ -94,7 +89,6 @@ body {
     line-height: 1.65;
 }
 
-/* ══ CARTÕES DE CONTACTO RÁPIDO ══════════════ */
 .quick-contact {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -148,7 +142,6 @@ body {
     color: var(--cor-secundaria);
 }
 
-/* ══ LAYOUT PRINCIPAL ════════════════════════ */
 .contactos-main {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
@@ -158,7 +151,6 @@ body {
     padding: 90px 8%;
 }
 
-/* ── COLUNA DO FORMULÁRIO ── */
 .section-label {
     display: inline-block;
     background-color: rgba(196, 139, 88, 0.12);
@@ -272,7 +264,6 @@ body {
     min-height: 1.2em;
 }
 
-/* ── COLUNA LATERAL DE INFORMAÇÃO ── */
 .info-side {
     display: flex;
     flex-direction: column;
@@ -300,7 +291,6 @@ body {
     font-size: 0.95rem;
 }
 
-/* HORÁRIOS */
 .hours-list {
     list-style: none;
     display: flex;
@@ -322,7 +312,6 @@ body {
 .hours-list span { opacity: 0.72; }
 .hours-list strong { color: var(--cor-secundaria); font-weight: 700; }
 
-/* MINI FAQ */
 .mini-faq {
     list-style: none;
     display: flex;
@@ -347,7 +336,6 @@ body {
     text-decoration: underline;
 }
 
-/* MAPA */
 .map-card { padding-bottom: 22px; }
 
 .map-embed {
@@ -384,7 +372,6 @@ body {
 
 .map-link:hover { text-decoration: underline; }
 
-/* ══ RESPONSIVIDADE ══════════════════════════ */
 @media (max-width: 1024px) {
     .contactos-main {
         grid-template-columns: 1fr;

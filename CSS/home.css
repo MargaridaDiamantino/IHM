@@ -8,10 +8,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-}
 
-/* Variáveis de cor agora centralizadas em theme.css (suporta light/dark mode) */
+}
 
 html {
     scroll-behavior: smooth;
@@ -35,10 +33,10 @@ img {
     display: flex;
     max-width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que as imagens não ficam distorcidas ao mudar o tamanho do ecrã */
+    object-fit: cover;
 }
 
-#Conteiner_imagens_home { 
+#Conteiner_imagens_home {
     display: flex;
     width: 100%;
     height: 100%;
@@ -66,7 +64,7 @@ h4 {
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    padding: 0 20px; /* Evita que o texto toque nas bordas do ecrã */
+    padding: 0 20px;
 }
 
 #conteiner_texto h2 {
@@ -83,16 +81,11 @@ h4 {
     text-align: center;
 }
 
-/* ==========================================================================
-   ORGANIZAÇÃO CRÍTICA DA RESPONSIVIDADE (ORDEM DECRESCENTE)
-   ========================================================================== */
-
-/* 1. TABLETS (Ecrãs até 992px) */
 @media(max-width: 992px) {
     #conteiner_home_1Apresentacao {
         flex-direction: column;
         text-align: center;
-        height: auto; /* Muda de 100vh para auto para acomodar o conteúdo empilhado */
+        height: auto;
         padding-top: 30px;
     }
 
@@ -103,36 +96,34 @@ h4 {
 
     #Conteiner_imagens_home {
         width: 100%;
-        height: 50vh; /* Define uma altura controlada para o bloco de imagens no tablet */
+        height: 50vh;
     }
 
 }
 
-/* 2. SMARTPHONES GRANDES (Ecrãs até 700px) */
 @media(max-width: 700px) {
     #conteiner_home_1Apresentacao {
         padding-top: 25px;
     }
 
     #Conteiner_imagens_home {
-        flex-direction: column; /* Imagens ficam uma abaixo da outra */
+        flex-direction: column;
         height: auto;
     }
 
     #Conteiner_imagens_home div {
-        height: 250px; /* Garante que cada bloco de imagem tem tamanho visível */
+        height: 250px;
     }
 
 }
 
-/* 3. SMARTPHONES PEQUENOS (Ecrãs até 600px) */
 @media(max-width: 600px) {
     #conteiner_home_1Apresentacao {
         padding-top: 20px;
     }
 
     #conteiner_texto h2 {
-        font-size: 2.5rem; /* Ajuste fino para não quebrar linhas de forma estranha */
+        font-size: 2.5rem;
     }
 
     #conteiner_texto h4 {
