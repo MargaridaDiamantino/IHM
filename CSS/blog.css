@@ -1,0 +1,130 @@
+/* Variáveis de cor agora centralizadas em theme.css (suporta light/dark mode) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-brown);
+    color: var(--text-white);
+    line-height: 1.6;
+}
+
+/* HEADER DO BLOG */
+.blog-wrapper {
+    padding: 60px 8% 60px;
+    position: relative;
+    margin-top: 0;
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.blog-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+/* GRID DO BLOG */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    z-index: 2;
+    position: relative;
+}
+
+/* CARDS DO BLOG */
+.blog-card {
+    background-color: var(--cor-superficie);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--cor-borda);
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+}
+
+.blog-image {
+    position: relative;
+    height: 250px;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--accent-orange);
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.blog-info {
+    padding: 25px;
+}
+
+.post-date {
+    color: var(--accent-orange);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.blog-info h3 {
+    margin: 15px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.blog-info p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    color: var(--accent-orange);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* DECORADORES*/
+.decorator {
+    position: absolute;
+    background-color: var(--accent-orange);
+    width: 60px;
+    z-index: 1;
+}
+
+.top-right-blog {
+    top: 100px;
+    right: 0;
+    height: 300px;
+}
+
+.bottom-left-blog {
+    bottom: -50px;
+    left: 0;
+    height: 300px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .blog-title { font-size: 2.5rem; }
+    .decorator { display: none; }
+}

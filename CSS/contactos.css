@@ -1,0 +1,424 @@
+/* =============================================
+   CONTACTOS — Hotel Lameira
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* ══ HERO ════════════════════════════════════ */
+.contactos-hero {
+    position: relative;
+    height: 56vh;
+    min-height: 380px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.contactos-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contactos-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(46, 26, 20, 0.35) 0%, rgba(46, 26, 20, 0.92) 100%);
+    z-index: 1;
+}
+
+.contactos-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 8% 50px;
+    color: #ffffff;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    margin-bottom: 18px;
+    opacity: 0.85;
+}
+
+.breadcrumb a {
+    color: #ffffff;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.breadcrumb a:hover { opacity: 1; text-decoration: underline; }
+.breadcrumb span[aria-current] { color: var(--cor-secundaria); font-weight: 600; }
+
+.contactos-hero-label {
+    display: inline-block;
+    background-color: rgba(196, 139, 88, 0.2);
+    border: 1px solid var(--cor-secundaria);
+    color: var(--cor-secundaria);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+}
+
+.contactos-hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.contactos-hero-content p {
+    font-size: 0.98rem;
+    opacity: 0.85;
+    max-width: 540px;
+    line-height: 1.65;
+}
+
+/* ══ CARTÕES DE CONTACTO RÁPIDO ══════════════ */
+.quick-contact {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    background-color: var(--cor-fundo-alt);
+    border-bottom: 1px solid rgba(196, 139, 88, 0.2);
+}
+
+.quick-card {
+    text-decoration: none;
+    color: var(--cor-texto);
+    padding: 32px 28px;
+    border-right: 1px solid rgba(196, 139, 88, 0.15);
+    transition: background-color 0.25s ease;
+}
+
+.quick-card:last-child { border-right: none; }
+
+.quick-card:hover {
+    background-color: rgba(196, 139, 88, 0.08);
+}
+
+.quick-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: rgba(196, 139, 88, 0.15);
+    color: var(--cor-secundaria);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.quick-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.quick-card p {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+.quick-link {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--cor-secundaria);
+}
+
+/* ══ LAYOUT PRINCIPAL ════════════════════════ */
+.contactos-main {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 56px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 90px 8%;
+}
+
+/* ── COLUNA DO FORMULÁRIO ── */
+.section-label {
+    display: inline-block;
+    background-color: rgba(196, 139, 88, 0.12);
+    border: 1px solid var(--cor-secundaria);
+    color: var(--cor-secundaria);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+.form-side h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin-bottom: 14px;
+}
+
+.form-intro {
+    font-size: 0.92rem;
+    opacity: 0.72;
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 480px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    opacity: 0.85;
+}
+
+.hotel-contact-form input,
+.hotel-contact-form textarea,
+.hotel-contact-form select {
+    width: 100%;
+    padding: 13px 15px;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.hotel-contact-form select {
+    cursor: pointer;
+}
+
+.hotel-contact-form input:focus,
+.hotel-contact-form textarea:focus,
+.hotel-contact-form select:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+    background-color: var(--cor-superficie);
+}
+
+.hotel-contact-form textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.btn-hotel-luxo {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--cor-secundaria);
+    color: #2e1a14;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.btn-hotel-luxo:hover {
+    background-color: #2e1a14;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.form-msg {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--cor-secundaria);
+    min-height: 1.2em;
+}
+
+/* ── COLUNA LATERAL DE INFORMAÇÃO ── */
+.info-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.info-card {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    padding: 26px;
+}
+
+.info-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-card h3 i {
+    color: var(--cor-secundaria);
+    font-size: 0.95rem;
+}
+
+/* HORÁRIOS */
+.hours-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 10px;
+}
+
+.hours-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+.hours-list span { opacity: 0.72; }
+.hours-list strong { color: var(--cor-secundaria); font-weight: 700; }
+
+/* MINI FAQ */
+.mini-faq {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mini-faq strong {
+    display: block;
+    font-size: 0.88rem;
+    margin-bottom: 4px;
+}
+
+.mini-faq p {
+    font-size: 0.82rem;
+    opacity: 0.7;
+    line-height: 1.55;
+}
+
+.mini-faq a {
+    color: var(--cor-secundaria);
+    text-decoration: underline;
+}
+
+/* MAPA */
+.map-card { padding-bottom: 22px; }
+
+.map-embed {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    filter: saturate(0.85);
+    background-color: var(--cor-fundo-alt);
+    background-image:
+        linear-gradient(45deg, rgba(196,139,88,0.08) 25%, transparent 25%, transparent 75%, rgba(196,139,88,0.08) 75%),
+        linear-gradient(45deg, rgba(196,139,88,0.08) 25%, transparent 25%, transparent 75%, rgba(196,139,88,0.08) 75%);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+}
+
+.map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--cor-secundaria);
+    text-decoration: none;
+}
+
+.map-link:hover { text-decoration: underline; }
+
+/* ══ RESPONSIVIDADE ══════════════════════════ */
+@media (max-width: 1024px) {
+    .contactos-main {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    .quick-contact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-card:nth-child(2) { border-right: none; }
+
+    .quick-card {
+        border-bottom: 1px solid rgba(196, 139, 88, 0.15);
+    }
+}
+
+@media (max-width: 768px) {
+    .contactos-hero { height: 50vh; min-height: 320px; }
+
+    .contactos-main { padding: 60px 6%; }
+
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+}
+
+@media (max-width: 600px) {
+    .quick-contact { grid-template-columns: 1fr; }
+
+    .quick-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(196, 139, 88, 0.15);
+    }
+
+    .contactos-hero-content h1 { font-size: 2rem; }
+}

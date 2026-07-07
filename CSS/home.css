@@ -1,0 +1,142 @@
+#conteiner_principal_home {
+    width: 100%;
+    height: 100%;
+    background-color: var(--cor-fundo);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Variáveis de cor agora centralizadas em theme.css (suporta light/dark mode) */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+    overflow-x: hidden;
+}
+
+#conteiner_home_1Apresentacao {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que as imagens não ficam distorcidas ao mudar o tamanho do ecrã */
+}
+
+#Conteiner_imagens_home { 
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+}
+
+#Conteiner_imagens_home div {
+    flex: 1;
+    overflow: hidden;
+}
+
+h2 {
+    color: var(--cor-texto);
+    font-size: 50px;
+}
+
+h4 {
+    color: var(--cor-texto);
+    font-size: 30px;
+}
+
+#conteiner_texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px; /* Evita que o texto toque nas bordas do ecrã */
+}
+
+#conteiner_texto h2 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-family: var(--fonte-titulo);
+    line-height: 1.1;
+    text-align: center;
+}
+
+#conteiner_texto h4 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--cor-secundaria);
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   ORGANIZAÇÃO CRÍTICA DA RESPONSIVIDADE (ORDEM DECRESCENTE)
+   ========================================================================== */
+
+/* 1. TABLETS (Ecrãs até 992px) */
+@media(max-width: 992px) {
+    #conteiner_home_1Apresentacao {
+        flex-direction: column;
+        text-align: center;
+        height: auto; /* Muda de 100vh para auto para acomodar o conteúdo empilhado */
+        padding-top: 30px;
+    }
+
+    #conteiner_texto {
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    #Conteiner_imagens_home {
+        width: 100%;
+        height: 50vh; /* Define uma altura controlada para o bloco de imagens no tablet */
+    }
+
+}
+
+/* 2. SMARTPHONES GRANDES (Ecrãs até 700px) */
+@media(max-width: 700px) {
+    #conteiner_home_1Apresentacao {
+        padding-top: 25px;
+    }
+
+    #Conteiner_imagens_home {
+        flex-direction: column; /* Imagens ficam uma abaixo da outra */
+        height: auto;
+    }
+
+    #Conteiner_imagens_home div {
+        height: 250px; /* Garante que cada bloco de imagem tem tamanho visível */
+    }
+
+}
+
+/* 3. SMARTPHONES PEQUENOS (Ecrãs até 600px) */
+@media(max-width: 600px) {
+    #conteiner_home_1Apresentacao {
+        padding-top: 20px;
+    }
+
+    #conteiner_texto h2 {
+        font-size: 2.5rem; /* Ajuste fino para não quebrar linhas de forma estranha */
+    }
+
+    #conteiner_texto h4 {
+        font-size: 1.3rem;
+    }
+
+}

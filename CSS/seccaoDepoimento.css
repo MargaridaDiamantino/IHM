@@ -1,0 +1,174 @@
+/* =============================================
+   DEPOIMENTOS — Hotel Lameira
+   ============================================= */
+
+#seccaoDepoimento {
+    width: 100%;
+    padding: 100px 8%;
+    position: relative;
+  
+}
+
+/* ── CABEÇALHO ────────────────────────────── */
+.dep-header {
+    text-align: center;
+    margin-bottom: 60px;
+  
+}
+
+.dep-label {
+    display: inline-block;
+    background-color: rgba(196, 139, 88, 0.12);
+    border: 1px solid var(--cor-secundaria);
+    color: var(--cor-secundaria);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+}
+
+.dep-title {
+    font-family: var(--fonte-titulo, 'Playfair Display', serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--cor-texto);
+}
+
+.dep-rating-global {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dep-rating-global .dep-stars {
+    color: var(--cor-secundaria);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.dep-rating-text {
+    font-size: 0.85rem;
+    opacity: 0.65;
+    color: var(--cor-texto);
+}
+
+/* ── GRID DE CARDS ────────────────────────── */
+#depoimentos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* ── CARD INDIVIDUAL ──────────────────────── */
+.dep-card {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+}
+
+.dep-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(196, 139, 88, 0.40);
+}
+
+/* SÍMBOLO DE CITAÇÃO */
+.dep-quote-icon {
+    font-family: Georgia, serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--cor-secundaria);
+    opacity: 0.5;
+    margin-bottom: -10px;
+    margin-top: -6px;
+    user-select: none;
+}
+
+/* TEXTO DO DEPOIMENTO */
+.dep-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    opacity: 0.82;
+    flex: 1;
+    font-style: italic;
+    color: var(--cor-texto);
+}
+
+/* ESTRELAS */
+.dep-stars-row {
+    color: var(--cor-secundaria);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+}
+
+/* AUTOR */
+.dep-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+    padding-top: 16px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+/* AVATAR COM INICIAIS */
+.dep-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--cor-secundaria);
+    color: #2e1a14;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+}
+
+/* INFO DO AUTOR */
+.dep-author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.dep-author-info strong {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+}
+
+.dep-author-info span {
+    font-size: 0.75rem;
+    opacity: 0.55;
+    color: var(--cor-texto);
+}
+
+/* ── RESPONSIVIDADE ───────────────────────── */
+@media (max-width: 1200px) {
+    #depoimentos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    #depoimentos {
+        grid-template-columns: 1fr;
+    }
+
+    #seccaoDepoimento {
+        padding: 70px 5%;
+    }
+}

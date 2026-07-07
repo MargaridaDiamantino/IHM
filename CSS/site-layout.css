@@ -1,0 +1,536 @@
+/* =================================================================
+   SITE-LAYOUT.CSS — Hotel Lameira
+   Header, navegação responsiva, toggle de tema, voltar ao topo,
+   footer e modal de cookies — partilhado por todas as páginas.
+   ================================================================= */
+
+* { box-sizing: border-box; }
+
+/* Altura fixa do header — usada para calcular o espaço do conteúdo */
+:root {
+    --altura-header: 74px;
+}
+
+@media (max-width: 480px) {
+    :root { --altura-header: 66px; }
+}
+
+/* Classe utilitária: aplicar a qualquer wrapper principal de página
+   para compensar o header fixo, substituindo os antigos paddings
+   percentuais calibrados para o iframe. */
+.page-offset-header {
+    padding-top: var(--altura-header) !important;
+    margin-top: 0 !important;
+}
+
+/* Compensação universal do header fixo.
+   Aplica-se ao body para funcionar em todas as páginas sem
+   necessidade de alterar individualmente cada wrapper. */
+body {
+    padding-top: var(--altura-header);
+}
+
+/* Páginas cujo primeiro elemento já é um hero de tela cheia
+   (ex: portfólio) não devem ter este espaçamento, pois o hero
+   é desenhado para ocupar até ao topo do ecrã. */
+body.no-header-offset {
+    padding-top: 0;
+}
+
+/* ══════════════════ HEADER ══════════════════ */
+#site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+    background-color: var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.site-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.site-logo img {
+    width: 42px;
+    height: 42px;
+    transition: filter 0.35s ease;
+}
+
+/* O logótipo foi desenhado em branco para fundo escuro;
+   inverte-se automaticamente em modo claro APENAS no header,
+   já que no footer o fundo é sempre laranja em ambos os temas. */
+html[data-theme="light"] #site-header .site-logo img {
+    filter: invert(1) brightness(0.35) sepia(1) saturate(3) hue-rotate(-10deg);
+}
+
+.site-logo h3 {
+    color: var(--cor-texto);
+    font-size: 1.3rem;
+    font-family: var(--fonte-titulo);
+    margin: 0;
+}
+
+/* ── NAVEGAÇÃO PRINCIPAL ── */
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.site-nav a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: var(--fonte-principal);
+    position: relative;
+    padding-bottom: 6px;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+.site-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-secundaria);
+    transition: width 0.25s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active-link {
+    color: var(--cor-secundaria);
+}
+
+.site-nav a:hover::after,
+.site-nav a.active-link::after {
+    width: 100%;
+}
+
+/* ── ACÇÕES DO HEADER (tema + hambúrguer) ── */
+.site-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.theme-toggle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--cor-borda);
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--cor-secundaria);
+    color: #2e1a14;
+    transform: rotate(15deg);
+}
+
+/* ── BOTÃO HAMBÚRGUER (mobile) ── */
+.nav-toggle-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-toggle-btn span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 0 auto;
+    background-color: var(--cor-texto);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ══════════════════ RESPONSIVIDADE DO HEADER ══════════════════ */
+@media (max-width: 900px) {
+    .nav-toggle-btn { display: flex; }
+
+    .site-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(320px, 80vw);
+        height: 100vh;
+        background-color: var(--cor-fundo);
+        border-left: 1px solid var(--cor-borda);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 100px 32px 40px;
+        transition: right 0.35s ease;
+        z-index: 400;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+    }
+
+    .site-nav.nav-open {
+        right: 0;
+    }
+
+    .site-nav a {
+        width: 100%;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--cor-borda);
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-logo h3 { display: none; }
+    .site-header-inner { padding: 14px 5%; }
+}
+
+/* ══════════════════ BOTÃO VOLTAR AO TOPO ══════════════════ */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--cor-secundaria);
+    color: #2e1a14;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.25s ease;
+    z-index: 300;
+}
+
+.back-to-top-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Quando o banner de cookies está visível, sobe o botão para não se sobreporem */
+.back-to-top-btn.banner-open {
+    bottom: 110px;
+}
+
+@media (max-width: 640px) {
+    .back-to-top-btn.banner-open {
+        bottom: 170px;
+    }
+}
+
+.back-to-top-btn:hover {
+    background-color: var(--cor-texto);
+}
+
+html[data-theme="light"] .back-to-top-btn:hover {
+    background-color: var(--cor-fundo-alt);
+    color: var(--cor-texto);
+}
+
+/* ══════════════════ FOOTER (estrutura partilhada) ══════════════════ */
+#site-footer {
+    width: 100%;
+    background-color: var(--cor-secundaria);
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 64px 5% 40px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+    gap: 50px;
+}
+
+.footer-col {
+    min-width: 0;
+}
+
+/* ── COLUNA DA MARCA (logo + tagline + redes sociais) ── */
+.footer-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.footer-logo-img {
+    width: 38px;
+    height: 38px;
+}
+
+.footer-brand-name {
+    color: var(--cor-fundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.footer-tagline {
+    color: var(--cor-fundo);
+    opacity: 0.85;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 280px;
+}
+
+/* ── REDES SOCIAIS NO FOOTER ── */
+.footer-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-socials a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--cor-fundo);
+    color: var(--cor-secundaria);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.footer-socials a:hover {
+    transform: translateY(-3px);
+    background-color: var(--cor-texto);
+}
+
+/* ── TÍTULOS DE COLUNA ── */
+.footer-col-title {
+    color: var(--cor-fundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+}
+
+/* ── LISTAS DE LINKS (Navegação / Legal) ── */
+.footer-link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-link-list li {
+    margin-bottom: 11px;
+}
+
+.footer-link-list a {
+    text-decoration: none;
+    color: var(--cor-fundo);
+    opacity: 0.85;
+    font-size: 0.9rem;
+    transition: opacity 0.25s ease;
+}
+
+.footer-link-list a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ── NEWSLETTER ── */
+.footer-newsletter-text {
+    color: var(--cor-fundo);
+    opacity: 0.85;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.footer-newsletter-row {
+    display: flex;
+    gap: 8px;
+}
+
+.footer-newsletter-row input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 14px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-family: var(--fonte-principal);
+    font-size: 0.85rem;
+}
+
+.footer-newsletter-row button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.footer-newsletter-row button:hover {
+    background-color: var(--cor-fundo-alt);
+    transform: scale(1.04);
+}
+
+.newsletter-msg {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: var(--cor-fundo);
+    font-weight: 700;
+    min-height: 1.2em;
+}
+
+/* ── BARRA INFERIOR DE COPYRIGHT ── */
+.footer-bottom-bar {
+    border-top: 1px solid rgba(46, 26, 20, 0.15);
+    padding: 18px 5% 22px;
+    text-align: center;
+}
+
+.footer-bottom-bar p {
+    color: var(--cor-fundo);
+    opacity: 0.7;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* ══════════════════ RESPONSIVIDADE DO FOOTER ══════════════════ */
+@media (max-width: 1000px) {
+    .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+        padding: 50px 6% 30px;
+        gap: 36px;
+    }
+
+    .footer-tagline { max-width: 100%; }
+
+    .footer-newsletter-row { flex-direction: column; }
+}
+
+/* ══════════════════ MODAL DE COOKIES / PRIVACIDADE ══════════════════ */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--cor-fundo-alt);
+    border-top: 1px solid var(--cor-secundaria);
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    z-index: 600;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.cookie-banner.visible {
+    transform: translateY(0);
+}
+
+.cookie-banner p {
+    color: var(--cor-texto);
+    font-size: 0.85rem;
+    opacity: 0.85;
+    max-width: 640px;
+    line-height: 1.5;
+}
+
+.cookie-banner p a {
+    color: var(--cor-secundaria);
+    text-decoration: underline;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cookie-actions button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid var(--cor-secundaria);
+    transition: 0.25s;
+}
+
+.cookie-accept {
+    background-color: var(--cor-secundaria);
+    color: #2e1a14;
+}
+
+.cookie-accept:hover { opacity: 0.85; }
+
+.cookie-decline {
+    background-color: transparent;
+    color: var(--cor-texto);
+}
+
+.cookie-decline:hover { background-color: var(--cor-superficie); }

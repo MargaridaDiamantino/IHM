@@ -1,0 +1,15 @@
+{
+  "extends": "/home/claude/.npm-global/lib/node_modules/stylelint-config-standard",
+  "rules": {
+    "no-descending-specificity": null,
+    "selector-class-pattern": null,
+    "selector-id-pattern": null,
+    "alpha-value-notation": null,
+    "color-function-notation": null,
+    "shorthand-property-no-redundant-values": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "media-feature-range-notation": null,
+    "import-notation": null,
+    "value-keyword-case": null
+  }
+}

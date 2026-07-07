@@ -1,0 +1,538 @@
+/* =============================================
+   PORTFÓLIO — Hotel Lameira
+   ============================================= */
+
+/* Variáveis de cor agora centralizadas em theme.css (suporta light/dark mode) */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-brown);
+    color: var(--text-white);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ══ HERO ════════════════════════════════════ */
+.port-hero {
+    position: relative;
+    height: 92vh;
+    min-height: 520px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.port-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.port-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(68, 40, 34, 0.3) 0%,
+        rgba(68, 40, 34, 0.85) 100%
+    );
+    z-index: 1;
+}
+
+.port-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 8% 60px;
+}
+
+.port-hero-label {
+    display: inline-block;
+    background-color: rgba(196, 139, 88, 0.2);
+    border: 1px solid var(--accent-orange);
+    color: var(--accent-orange);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+.port-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 14px;
+    max-width: 600px;
+}
+
+.port-hero-sub {
+    font-size: 1rem;
+    opacity: 0.75;
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+}
+
+/* TABS DE NAVEGAÇÃO NO HERO */
+.port-hero-nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.port-tab {
+    color: var(--cor-texto-suave);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    transition: all 0.25s ease;
+}
+
+.port-tab:hover,
+.port-tab.active {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #2e1a14;
+}
+
+/* ══ ESTATÍSTICAS ════════════════════════════ */
+.port-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background-color: var(--accent-dark);
+    border-top: 1px solid rgba(196, 139, 88, 0.2);
+    border-bottom: 1px solid rgba(196, 139, 88, 0.2);
+    padding: 36px 8%;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 130px;
+    padding: 10px 20px;
+}
+
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    text-align: center;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 48px;
+    background-color: var(--cor-superficie);
+    flex-shrink: 0;
+}
+
+/* ══ SECÇÕES GENÉRICAS ═══════════════════════ */
+.port-section {
+    padding: 100px 8%;
+}
+
+.port-section-alt {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* CABEÇALHO DE SECÇÃO */
+.port-section-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 60px;
+}
+
+.port-section-label-wrap {
+    margin-bottom: 14px;
+}
+
+.port-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(196, 139, 88, 0.12);
+    border: 1px solid var(--accent-orange);
+    color: var(--accent-orange);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 30px;
+}
+
+.port-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.port-section-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    opacity: 0.72;
+}
+
+/* ══ GRELHA DE IMAGENS ═══════════════════════ */
+.port-grid {
+    display: grid;
+    gap: 16px;
+}
+
+/* Layout featured: imagem grande + 2 pequenas (horizontal) */
+.port-grid-featured {
+    grid-template-columns: 1.6fr 1fr 1fr;
+    grid-template-rows: 420px;
+}
+
+.port-grid-featured .port-card-large {
+    grid-row: 1;
+}
+
+/* Layout restaurante: igual ao quartos mas mirrored */
+.port-grid-resto {
+    grid-template-columns: 1fr 1fr 1.6fr;
+    grid-template-rows: 420px;
+}
+
+.port-grid-resto .port-card-large {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+/* CARD DE IMAGEM */
+.port-img-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.port-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.port-img-card:hover img {
+    transform: scale(1.07);
+}
+
+/* OVERLAY DA IMAGEM */
+.port-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(68,40,34,0.85) 0%, transparent 55%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 18px 20px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.port-img-card:hover .port-img-overlay {
+    opacity: 1;
+}
+
+.port-img-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background-color: var(--accent-orange);
+    color: #2e1a14;
+    padding: 5px 14px;
+    border-radius: 4px;
+}
+
+.port-img-zoom {
+    width: 36px;
+    height: 36px;
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--text-white);
+    transition: background-color 0.2s;
+}
+
+.port-img-zoom:hover {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #2e1a14;
+}
+
+/* BOTÃO CTA */
+.port-cta-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.port-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--accent-orange);
+    color: #2e1a14;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 14px 32px;
+    border-radius: 6px;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.port-btn:hover {
+    opacity: 0.88;
+    transform: translateX(4px);
+}
+
+/* ══ SPLIT PISCINA ═══════════════════════════ */
+.port-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.port-split-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.port-split-text .port-section-label {
+    align-self: flex-start;
+}
+
+.port-split-text .port-section-title {
+    margin-bottom: 0;
+}
+
+.port-split-text .port-section-desc {
+    margin-bottom: 4px;
+}
+
+/* LISTA DE CARACTERÍSTICAS */
+.port-feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.port-feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.port-feature-list li i {
+    color: var(--accent-orange);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* LADO DA IMAGEM NA PISCINA */
+.port-split-img {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 500px;
+}
+
+.port-split-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.port-split-img:hover img {
+    transform: scale(1.04);
+}
+
+/* BADGE FLUTUANTE */
+.port-split-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background-color: var(--accent-dark);
+    border: 1px solid rgba(196, 139, 88, 0.35);
+    border-radius: 8px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.port-split-badge i {
+    color: var(--accent-orange);
+    font-size: 1rem;
+}
+
+/* ══ LIGHTBOX ════════════════════════════════ */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(30, 14, 10, 0.95);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-inner {
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.lightbox-inner img {
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.lightbox-label {
+    font-size: 0.85rem;
+    opacity: 0.65;
+    text-align: center;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    color: var(--text-white);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.lightbox-close { top: 24px; right: 24px; }
+.lightbox-prev  { left: 24px;  top: 50%; transform: translateY(-50%); }
+.lightbox-next  { right: 24px; top: 50%; transform: translateY(-50%); }
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #2e1a14;
+}
+
+/* ══ RESPONSIVIDADE ══════════════════════════ */
+@media (max-width: 1000px) {
+    .port-grid-featured,
+    .port-grid-resto {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 280px 280px;
+    }
+
+    .port-grid-featured .port-card-large {
+        grid-column: 1 / -1;
+    }
+
+    .port-grid-resto .port-card-large {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .port-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .port-split-img { height: 320px; }
+
+    .stat-divider { display: none; }
+}
+
+@media (max-width: 640px) {
+    .port-hero { height: 85vh; }
+
+    .port-section { padding: 70px 5%; }
+
+    .port-grid-featured,
+    .port-grid-resto {
+        grid-template-columns: 1fr;
+        grid-template-rows: unset;
+    }
+
+    .port-img-card { height: 260px; }
+    .port-img-overlay { opacity: 1; }
+
+    .port-grid-featured .port-card-large,
+    .port-grid-resto .port-card-large {
+        grid-column: 1;
+        grid-row: unset;
+    }
+
+    .port-hero-nav { gap: 6px; }
+    .port-tab { font-size: 0.72rem; padding: 8px 14px; }
+
+    .lightbox-prev { left: 8px; }
+    .lightbox-next { right: 8px; }
+}

@@ -1,0 +1,166 @@
+
+/* ========================= */
+/* SERVIÇOS (mini-secção da Home) */
+/* ========================= */
+
+#seccaoNossoServico {
+    width: 100%;
+    padding: 100px 8%;
+       background-color:  rgba(0, 0, 0, 0.12);
+}
+
+/* CABEÇALHO DA SECÇÃO */
+.servicos-mini-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+
+.servicos-mini-label {
+    display: inline-block;
+    background-color: rgba(196, 139, 88, 0.12);
+    border: 1px solid var(--cor-secundaria);
+    color: var(--cor-secundaria);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+#textoNossosServicos {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-family: var(--fonte-titulo);
+    margin-bottom: 14px;
+    color: var(--cor-texto);
+}
+
+.servicos-mini-intro {
+    font-size: 0.95rem;
+    opacity: 0.72;
+    color: var(--cor-texto);
+}
+
+/* GRELHA DE CARDS */
+#nossoServicos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.cardImagemParagrafo {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.cardImagemParagrafo:hover {
+    transform: translateY(-8px);
+    border-color: rgba(196, 139, 88, 0.4);
+}
+
+/* IMAGEM + ETIQUETA SOBREPOSTA */
+.servico-mini-img-wrap {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+}
+
+.imagemNossosServicos {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.cardImagemParagrafo:hover .imagemNossosServicos {
+    transform: scale(1.06);
+}
+
+.servico-mini-tag {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: var(--cor-secundaria);
+    color: #2e1a14;
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* INFORMAÇÃO TEXTUAL */
+.servico-mini-info {
+    padding: 22px 22px 26px;
+}
+
+.servico-mini-info h3 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--cor-texto);
+}
+
+.ParagrafoServico {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    opacity: 0.78;
+    color: var(--cor-texto);
+}
+
+/* CTA "VER TODOS OS SERVIÇOS" */
+.servicos-mini-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+}
+
+.servicos-mini-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: 1.5px solid var(--cor-secundaria);
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 13px 30px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.servicos-mini-btn:hover {
+    background-color: var(--cor-secundaria);
+    color: #2e1a14;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 992px) {
+    #nossoServicos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    #seccaoNossoServico {
+        padding: 70px 5%;
+    }
+
+    .servicos-mini-header {
+        margin-bottom: 40px;
+    }
+}

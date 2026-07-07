@@ -1,0 +1,467 @@
+/* =============================================
+   SOBRE NÓS — Hotel Lameira
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── HERO: TEXTO + IMAGEM ── */
+.sobre {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--cor-fundo);
+    overflow: hidden;
+}
+
+/* TEXTO */
+
+.conteudo {
+    width: 50%;
+    padding-left: 70px;
+    padding-right: 40px;
+    position: relative;
+}
+
+/* NÚMERO DECORATIVO DE FUNDO */
+.sobre-bg-number {
+    position: absolute;
+    top: -40px;
+    left: 40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 11rem;
+    font-weight: 700;
+    color: var(--cor-secundaria);
+    opacity: 0.08;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.sobre-label {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    background-color: rgba(196, 139, 88, 0.12);
+    border: 1px solid var(--cor-secundaria);
+    color: var(--cor-secundaria);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+}
+
+.conteudo h1 {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    margin-bottom: 36px;
+    color: var(--cor-texto);
+}
+
+.conteudo p {
+    position: relative;
+    z-index: 1;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    margin-bottom: 20px;
+    color: var(--cor-texto);
+    opacity: 0.88;
+}
+
+/* CITAÇÃO DESTACADA */
+.sobre-quote {
+    position: relative;
+    z-index: 1;
+    border-left: 3px solid var(--cor-secundaria);
+    padding: 6px 0 6px 22px;
+    margin: 30px 0 34px;
+}
+
+.sobre-quote i {
+    color: var(--cor-secundaria);
+    font-size: 1.1rem;
+    opacity: 0.7;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.sobre-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    opacity: 1;
+    color: var(--cor-texto);
+}
+
+/* IMAGEM */
+
+.imagem {
+    width: 45%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1400px;
+}
+
+/* MOLDURA COM EFEITO TILT 3D */
+.imagem-frame {
+    position: relative;
+    width: 88%;
+    height: 80%;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.45);
+    transition: transform 0.25s ease-out;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.imagem-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* SELO FLUTUANTE DE AVALIAÇÃO */
+.imagem-badge {
+    position: absolute;
+    bottom: 26px;
+    left: 26px;
+    background-color: var(--cor-fundo);
+    border: 1px solid rgba(196, 139, 88, 0.4);
+    border-radius: 14px;
+    padding: 16px 22px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 3;
+}
+
+.imagem-badge-stars {
+    color: var(--cor-secundaria);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+}
+
+.imagem-badge strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--cor-texto);
+    line-height: 1.2;
+}
+
+.imagem-badge span:last-child {
+    font-size: 0.72rem;
+    color: var(--cor-texto);
+    opacity: 0.65;
+}
+
+/* ETIQUETA DE LOCALIZAÇÃO */
+.imagem-tag-top {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background-color: rgba(46, 26, 20, 0.65);
+    backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 3;
+}
+
+.imagem-tag-top i {
+    color: var(--cor-secundaria);
+}
+
+/* BARRA LARANJA */
+
+.barra {
+    width: 80px;
+    height: 360px;
+    background: var(--cor-secundaria);
+
+    position: absolute;
+    left: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* BOTÃO — laranja da marca com texto castanho escuro fixo,
+   garantindo contraste tanto no estado normal como no hover,
+   independentemente do tema activo. */
+.btn {
+    display: inline-block;
+    background-color: var(--cor-secundaria);
+    color: #2e1a14;
+    text-decoration: none;
+    padding: 16px 38px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    margin-top: 16px;
+
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2e1a14;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+/* =============================================
+   ESTATÍSTICAS
+   ============================================= */
+
+.sobre-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background-color: var(--cor-fundo-alt);
+    border-top: 1px solid rgba(196, 139, 88, 0.2);
+    border-bottom: 1px solid rgba(196, 139, 88, 0.2);
+    padding: 36px 8%;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 130px;
+    padding: 10px 20px;
+}
+
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--cor-secundaria);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cor-texto);
+    opacity: 0.65;
+    text-align: center;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 48px;
+    background-color: var(--cor-borda);
+    flex-shrink: 0;
+}
+
+/* =============================================
+   VALORES
+   ============================================= */
+
+.sobre-valores {
+    width: 100%;
+    padding: 100px 8%;
+    background-color: var(--cor-fundo);
+}
+
+.valores-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+
+.valores-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--cor-texto);
+    margin-top: 14px;
+}
+
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.valor-card {
+    background-color: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    padding: 32px 26px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.valor-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(196, 139, 88, 0.4);
+}
+
+.valor-card i {
+    font-size: 1.8rem;
+    color: var(--cor-secundaria);
+    margin-bottom: 18px;
+    display: block;
+}
+
+.valor-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--cor-texto);
+}
+
+.valor-card p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--cor-texto);
+    opacity: 0.78;
+}
+
+/* =============================================
+   RESPONSIVO
+   ============================================= */
+
+@media (max-width: 1200px) {
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .stat-divider { display: none; }
+}
+
+@media (max-width: 900px) {
+
+    .sobre {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .conteudo {
+        width: 100%;
+        padding: 130px 8% 40px;
+    }
+
+    .sobre-bg-number {
+        font-size: 7rem;
+        top: -20px;
+        left: 8%;
+    }
+
+    .imagem {
+        width: 100%;
+        height: 60vh;
+        padding: 0 6% 60px;
+    }
+
+    .imagem-frame {
+        width: 100%;
+        height: 100%;
+    }
+
+    .conteudo h1 {
+        font-size: 2.8rem;
+    }
+
+    .barra {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .conteudo h1 {
+        font-size: 2.2rem;
+    }
+
+    .conteudo p {
+        font-size: 1rem;
+    }
+
+    .sobre-valores {
+        padding: 70px 5%;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .imagem {
+        height: 320px;
+        padding: 0 5% 40px;
+    }
+
+    .imagem-badge {
+        padding: 12px 16px;
+        bottom: 14px;
+        left: 14px;
+    }
+
+    .imagem-badge strong {
+        font-size: 1.05rem;
+    }
+
+    .imagem-tag-top {
+        font-size: 0.7rem;
+        padding: 7px 12px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .sobre-stats {
+        padding: 30px 6%;
+        gap: 20px;
+    }
+
+    .stat-item {
+        min-width: 100px;
+    }
+}
