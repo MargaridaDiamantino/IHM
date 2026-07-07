@@ -15,7 +15,7 @@
        Como o site usa pastas HTML/CSS/Media na raiz,
        todas as páginas estão em /HTML/, por isso os
        caminhos relativos partem sempre de ../ */
-    const BASE = "../";
+    const BASE = "";
 
     /* =================================================
        1. HTML DO HEADER
@@ -23,18 +23,18 @@
     function getHeaderHTML() {
         return `
         <div class="site-header-inner">
-            <a href="${BASE}HTML/home.html" class="site-logo">
+            <a href="${BASE}index.html" class="site-logo">
                 <img src="${BASE}Media/imagem_logo.png" alt="Logótipo Hotel Lameira">
                 <h3>Hotel</h3>
             </a>
 
             <nav class="site-nav" id="siteNav">
-                <a href="${BASE}HTML/home.html" data-page="home">Home</a>
-                <a href="${BASE}HTML/nossoServicos.html" data-page="nossoServicos">Serviços</a>
-                <a href="${BASE}HTML/portifolio.html" data-page="portifolio">Portfólio</a>
-                <a href="${BASE}HTML/contactos.html" data-page="contactos">Contactos</a>
-                <a href="${BASE}HTML/blog.html" data-page="blog">Blog</a>
-                <a href="${BASE}HTML/sobreNos.html" data-page="sobreNos">Sobre Nós</a>
+                <a href="${BASE}index.html" data-page="home">Home</a>
+                <a href="${BASE}nossoServicos.html" data-page="nossoServicos">Serviços</a>
+                <a href="${BASE}portifolio.html" data-page="portifolio">Portfólio</a>
+                <a href="${BASE}contactos.html" data-page="contactos">Contactos</a>
+                <a href="${BASE}blog.html" data-page="blog">Blog</a>
+                <a href="${BASE}sobreNos.html" data-page="sobreNos">Sobre Nós</a>
             </nav>
 
             <div class="site-header-actions">
@@ -71,21 +71,21 @@
             <div class="footer-col">
                 <h4 class="footer-col-title">Navegação</h4>
                 <ul class="footer-link-list">
-                    <li><a href="${BASE}HTML/home.html">Home</a></li>
-                    <li><a href="${BASE}HTML/nossoServicos.html">Serviços</a></li>
-                    <li><a href="${BASE}HTML/portifolio.html">Portfólio</a></li>
-                    <li><a href="${BASE}HTML/contactos.html">Contactos</a></li>
-                    <li><a href="${BASE}HTML/sobreNos.html">Sobre Nós</a></li>
+                    <li><a href="${BASE}index.html">Home</a></li>
+                    <li><a href="${BASE}nossoServicos.html">Serviços</a></li>
+                    <li><a href="${BASE}portifolio.html">Portfólio</a></li>
+                    <li><a href="${BASE}contactos.html">Contactos</a></li>
+                    <li><a href="${BASE}sobreNos.html">Sobre Nós</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4 class="footer-col-title">Legal</h4>
                 <ul class="footer-link-list">
-                    <li><a href="${BASE}HTML/politaDePrivacidade.html">Política de Privacidade</a></li>
-                    <li><a href="${BASE}HTML/TermosCondicoes.html">Termos e Condições</a></li>
-                    <li><a href="${BASE}HTML/perguntasFrequentes.html">Perguntas Frequentes</a></li>
-                    <li><a href="${BASE}HTML/blog.html">Blog</a></li>
+                    <li><a href="${BASE}politaDePrivacidade.html">Política de Privacidade</a></li>
+                    <li><a href="${BASE}TermosCondicoes.html">Termos e Condições</a></li>
+                    <li><a href="${BASE}perguntasFrequentes.html">Perguntas Frequentes</a></li>
+                    <li><a href="${BASE}blog.html">Blog</a></li>
                 </ul>
             </div>
 
@@ -250,7 +250,7 @@
         banner.id = "cookieBanner";
         banner.innerHTML = `
             <p>Utilizamos cookies para melhorar a sua experiência e analisar o tráfego do site.
-               Consulte a nossa <a href="${BASE}HTML/politaDePrivacidade.html">Política de Privacidade</a>.</p>
+               Consulte a nossa <a href="${BASE}politaDePrivacidade.html">Política de Privacidade</a>.</p>
             <div class="cookie-actions">
                 <button class="cookie-decline" id="cookieDecline">Rejeitar</button>
                 <button class="cookie-accept" id="cookieAccept">Aceitar</button>
