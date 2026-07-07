@@ -2,7 +2,7 @@
     width: 100%;
     padding: 100px 8%;
     position: relative;
-    background-color:#442822 ;
+    background-color: var(--cor-fundo-alt);
 }
 
 .dep-header {
