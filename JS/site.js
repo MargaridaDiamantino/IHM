@@ -1,7 +1,10 @@
 (function () {
     "use strict";
 
-    const BASE = "";
+    const BASE = window.location.pathname.indexOf("/html/") !== -1 ? "../" : "";
+    const PAGE_DIR = BASE + "html/";
+
+    const GA_MEASUREMENT_ID = "G-L1G8SX8J9H";
 
     function getHeaderHTML() {
         return `
@@ -13,11 +16,11 @@
 
             <nav class="site-nav" id="siteNav">
                 <a href="${BASE}index.html" data-page="home">Home</a>
-                <a href="${BASE}nossoServicos.html" data-page="nossoServicos">Serviços</a>
-                <a href="${BASE}portifolio.html" data-page="portifolio">Portfólio</a>
-                <a href="${BASE}contactos.html" data-page="contactos">Contactos</a>
-                <a href="${BASE}blog.html" data-page="blog">Blog</a>
-                <a href="${BASE}sobreNos.html" data-page="sobreNos">Sobre Nós</a>
+                <a href="${PAGE_DIR}nossoServicos.html" data-page="nossoServicos">Serviços</a>
+                <a href="${PAGE_DIR}portifolio.html" data-page="portifolio">Portfólio</a>
+                <a href="${PAGE_DIR}contactos.html" data-page="contactos">Contactos</a>
+                <a href="${PAGE_DIR}blog.html" data-page="blog">Blog</a>
+                <a href="${PAGE_DIR}sobreNos.html" data-page="sobreNos">Sobre Nós</a>
             </nav>
 
             <div class="site-header-actions">
@@ -53,20 +56,20 @@
                 <h4 class="footer-col-title">Navegação</h4>
                 <ul class="footer-link-list">
                     <li><a href="${BASE}index.html">Home</a></li>
-                    <li><a href="${BASE}nossoServicos.html">Serviços</a></li>
-                    <li><a href="${BASE}portifolio.html">Portfólio</a></li>
-                    <li><a href="${BASE}contactos.html">Contactos</a></li>
-                    <li><a href="${BASE}sobreNos.html">Sobre Nós</a></li>
+                    <li><a href="${PAGE_DIR}nossoServicos.html">Serviços</a></li>
+                    <li><a href="${PAGE_DIR}portifolio.html">Portfólio</a></li>
+                    <li><a href="${PAGE_DIR}contactos.html">Contactos</a></li>
+                    <li><a href="${PAGE_DIR}sobreNos.html">Sobre Nós</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4 class="footer-col-title">Legal</h4>
                 <ul class="footer-link-list">
-                    <li><a href="${BASE}politaDePrivacidade.html">Política de Privacidade</a></li>
-                    <li><a href="${BASE}TermosCondicoes.html">Termos e Condições</a></li>
-                    <li><a href="${BASE}perguntasFrequentes.html">Perguntas Frequentes</a></li>
-                    <li><a href="${BASE}blog.html">Blog</a></li>
+                    <li><a href="${PAGE_DIR}politaDePrivacidade.html">Política de Privacidade</a></li>
+                    <li><a href="${PAGE_DIR}TermosCondicoes.html">Termos e Condições</a></li>
+                    <li><a href="${PAGE_DIR}perguntasFrequentes.html">Perguntas Frequentes</a></li>
+                    <li><a href="${PAGE_DIR}blog.html">Blog</a></li>
                 </ul>
             </div>
 
@@ -232,7 +235,7 @@
         banner.id = "cookieBanner";
         banner.innerHTML = `
             <p>Utilizamos cookies para melhorar a sua experiência e analisar o tráfego do site.
-               Consulte a nossa <a href="${BASE}politaDePrivacidade.html">Política de Privacidade</a>.</p>
+               Consulte a nossa <a href="${PAGE_DIR}politaDePrivacidade.html">Política de Privacidade</a>.</p>
             <div class="cookie-actions">
                 <button class="cookie-decline" id="cookieDecline">Rejeitar</button>
                 <button class="cookie-accept" id="cookieAccept">Aceitar</button>
@@ -267,7 +270,50 @@
         if (window.__analyticsLoaded) return;
         window.__analyticsLoaded = true;
 
-        console.log("[Hotel Lameira] Consentimento de analytics aceite — pronto para activar GA4 / Meta Pixel.");
+        if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID.indexOf("XXXX") !== -1) {
+            console.log("[Hotel Lameira] Google Analytics ainda não está configurado. Defina GA_MEASUREMENT_ID em JS/site.js com o seu ID real (algo como G-AB12CD3456).");
+            return;
+        }
+
+        const gaScript = document.createElement("script");
+        gaScript.async = true;
+        gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_MEASUREMENT_ID;
+        document.head.appendChild(gaScript);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag("js", new Date());
+        window.gtag("config", GA_MEASUREMENT_ID, { anonymize_ip: true });
+    }
+
+    function trackEvent(eventName, params) {
+        if (typeof window.gtag === "function") {
+            window.gtag("event", eventName, params || {});
+        }
+    }
+    window.hotelLameiraTrackEvent = trackEvent;
+
+    function setupEventTracking() {
+        document.addEventListener("click", function (event) {
+            const readMore = event.target.closest(".read-more");
+            if (readMore) {
+                trackEvent("blog_read_more_click", {
+                    link_url: readMore.getAttribute("href"),
+                    page_location: window.location.href
+                });
+            }
+
+            const bookingCta = event.target.closest("a[href*='contactos.html']");
+            if (bookingCta) {
+                trackEvent("booking_cta_click", { page_location: window.location.href });
+            }
+        });
+
+        document.addEventListener("submit", function (event) {
+            if (event.target && event.target.id === "newsletterForm") {
+                trackEvent("newsletter_signup", { page_location: window.location.href });
+            }
+        });
     }
 
     function setupScrollReveal() {
@@ -336,6 +382,7 @@
         setupBackToTop();
         setupNewsletter();
         setupCookieBanner();
+        setupEventTracking();
         setupScrollReveal();
         setupAnimatedCounters();
     });

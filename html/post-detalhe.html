@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="../Media/imagem_logo.png">
+    <link rel="stylesheet" href="../CSS/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="postPageTitle">Artigo do Blog — Hotel Lameira</title>
+
+    <link rel="stylesheet" href="../CSS/post-detalhe.css" />
+    <link rel="stylesheet" href="../CSS/site-layout.css">
+    <script src="../JS/site.js"></script>
+</head>
+<body>
+    <div class="reading-progress-bar" id="readingProgressBar"></div>
+
+    <header id="site-header"></header>
+
+    <nav class="post-breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="blog.html">Blog</a>
+        <span>/</span>
+        <span class="current" id="postBreadcrumbTitle">Artigo</span>
+    </nav>
+
+    <header class="post-hero">
+        <div class="post-hero-overlay"></div>
+        <img id="postHeroImg" src="../Media/imagemBlog1.jpg" alt="" class="post-hero-img">
+        <div class="post-hero-content">
+            <span class="post-category-tag" id="postCategory">Viagens</span>
+            <h1 class="post-hero-title" id="postTitle">Título do artigo</h1>
+            <p class="post-hero-subtitle" id="postSubtitle">Subtítulo do artigo</p>
+            <div class="post-meta">
+                <span class="post-date" id="postDate">01 Jan, 2024</span>
+                <span>·</span>
+                <span id="postReadingTime">5 min de leitura</span>
+                <span>·</span>
+                <span>Hotel Lameira</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="post-article-wrapper">
+        <a href="blog.html" class="post-back-link"><i class="fa-solid fa-arrow-left"></i> Voltar ao Blog</a>
+
+        <div id="postBody" class="post-body"></div>
+
+        <div class="post-tags" id="postTags"></div>
+
+        <div class="post-share-row">
+            <span class="post-share-label">Partilhar:</span>
+            <a href="#" id="shareFacebook" class="post-share-btn" aria-label="Partilhar no Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" id="shareTwitter" class="post-share-btn" aria-label="Partilhar no X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" id="shareWhatsapp" class="post-share-btn" aria-label="Partilhar no WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <button type="button" id="shareCopy" class="post-share-btn" aria-label="Copiar link"><i class="fa-solid fa-link"></i></button>
+        </div>
+
+        <div class="post-author-card">
+            <div class="post-author-avatar" id="postAuthorInitials">HL</div>
+            <div>
+                <div class="post-author-name" id="postAuthorName">Equipa Hotel Lameira</div>
+                <div class="post-author-role" id="postAuthorRole">Conteúdo &amp; Experiência do Hóspede</div>
+            </div>
+        </div>
+
+        <div class="post-cta">
+            <p>Gostou do que leu? Venha viver esta experiência pessoalmente no Hotel Lameira.</p>
+            <a href="contactos.html">Fazer uma Reserva</a>
+        </div>
+    </main>
+
+    <section class="related-posts-section">
+        <h2 class="related-posts-title">Também pode gostar</h2>
+        <div class="related-posts-grid" id="relatedPostsGrid"></div>
+    </section>
+
+    <footer id="site-footer"></footer>
+
+    <script>
+        (function () {
+            var posts = {
+                "1": {
+                    title: "Como desfrutar do fim de tarde perfeito na nossa piscina",
+                    subtitle: "Um roteiro para aproveitar as horas douradas junto à água.",
+                    category: "Viagens",
+                    date: "15 Mai, 2024",
+                    image: "../Media/imagemBlog1.jpg",
+                    author: { name: "Equipa Hotel Lameira", role: "Experiência do Hóspede", initials: "HL" },
+                    tags: ["Piscina", "Entardecer", "Cocktails"],
+                    quote: "O melhor momento do dia não se marca no relógio — reconhece-se pela luz que cai sobre a água.",
+                    sections: [
+                        {
+                            heading: "O momento em que tudo desacelera",
+                            paragraphs: [
+                                "Quando o sol se põe sobre Luanda, o nosso terraço junto à piscina transforma-se num dos lugares mais especiais do Hotel Lameira. A luz dourada do fim de tarde reflete-se na água e cria o cenário perfeito para relaxar após um dia de exploração ou simplesmente para apreciar a vista.",
+                                "É nesta altura que o ritmo da estadia muda. As conversas ficam mais lentas, os telefones ficam guardados e o hóspede permite-se, finalmente, estar presente."
+                            ]
+                        },
+                        {
+                            heading: "Uma carta de cocktails pensada para o pôr do sol",
+                            paragraphs: [
+                                "A nossa carta de cocktails foi pensada precisamente para acompanhar este momento. Combinações frescas com frutas tropicais locais, ervas aromáticas e destilados selecionados dão vida a bebidas que capturam o espírito de Angola em cada gole.",
+                                "Cada receita é revista sazonalmente pela nossa equipa de bar, garantindo que os sabores acompanham sempre o melhor que a época tem para oferecer."
+                            ]
+                        },
+                        {
+                            heading: "Como planear a sua tarde perfeita",
+                            paragraphs: [
+                                "Recomendamos chegar por volta das 17h30, para garantir um dos lugares com vista privilegiada sobre a piscina. A nossa equipa está sempre disponível para sugerir a combinação ideal consoante o seu paladar.",
+                                "Este é o tipo de momento simples que faz toda a diferença numa estadia — e é exatamente isso que procuramos oferecer a cada hóspede do Hotel Lameira."
+                            ]
+                        }
+                    ]
+                },
+                "2": {
+                    title: "Os segredos do nosso pequeno-almoço artesanal",
+                    subtitle: "Como transformamos o primeiro momento do dia numa experiência memorável.",
+                    category: "Gastronomia",
+                    date: "10 Mai, 2024",
+                    image: "../Media/imagemPortifolio4.jpg",
+                    author: { name: "Chef Miguel Sanches", role: "Chef Executivo", initials: "MS" },
+                    tags: ["Gastronomia", "Pequeno-Almoço", "Produtores Locais"],
+                    quote: "Um bom pequeno-almoço não alimenta apenas o corpo — dá o tom a todo o dia do hóspede.",
+                    sections: [
+                        {
+                            heading: "O primeiro momento do dia, tratado como o mais importante",
+                            paragraphs: [
+                                "Acreditamos que o luxo está nos detalhes, e não há melhor forma de o demonstrar do que através do primeiro momento do dia dos nossos hóspedes: o pequeno-almoço.",
+                                "Cada elemento da mesa, da toalha ao arranjo floral, é preparado com o mesmo cuidado que colocamos nos pratos."
+                            ]
+                        },
+                        {
+                            heading: "Produtores locais, ingredientes frescos",
+                            paragraphs: [
+                                "O nosso Chef trabalha diretamente com produtores da região para selecionar os ingredientes mais frescos — frutas tropicais, pão artesanal preparado diariamente e café torrado especialmente para o hotel.",
+                                "Esta relação próxima com pequenos produtores permite-nos garantir qualidade consistente, ao mesmo tempo que apoiamos a economia local."
+                            ]
+                        },
+                        {
+                            heading: "Personalização à mesa",
+                            paragraphs: [
+                                "Cada prato é preparado na hora, permitindo que os hóspedes personalizem a sua experiência consoante o apetite e as preferências. Desde opções tradicionais angolanas até clássicos internacionais, há sempre algo para agradar a todos os paladares.",
+                                "Esta atenção ao detalhe reflete o compromisso do Hotel Lameira: transformar até o momento mais simples do dia numa experiência memorável."
+                            ]
+                        }
+                    ]
+                },
+                "3": {
+                    title: "Guia de Relaxamento: Como rejuvenescer o corpo e a mente no nosso SPA",
+                    subtitle: "Um roteiro de bem-estar para restaurar o equilíbrio durante a sua estadia.",
+                    category: "Wellness",
+                    date: "02 Mai, 2024",
+                    image: "../Media/imagemSobreNos.jpg",
+                    author: { name: "Equipa Hotel Lameira", role: "Wellness &amp; Spa", initials: "HL" },
+                    tags: ["SPA", "Bem-estar", "Massagens"],
+                    quote: "Descansar não é uma pausa na viagem — é parte dela.",
+                    sections: [
+                        {
+                            heading: "Um refúgio de tranquilidade",
+                            paragraphs: [
+                                "Deixe o stress da rotina lá fora. O nosso SPA foi concebido como um refúgio de tranquilidade, onde cada detalhe — da iluminação suave à seleção de aromas — contribui para uma experiência verdadeiramente restauradora.",
+                                "O silêncio é interrompido apenas pelo som da água, criando um ambiente que convida à desconexão total."
+                            ]
+                        },
+                        {
+                            heading: "Terapias pensadas para si",
+                            paragraphs: [
+                                "Criámos um roteiro de terapias termais e massagens personalizadas, adaptadas às necessidades individuais de cada hóspede. Desde massagens relaxantes até tratamentos mais terapêuticos, a nossa equipa especializada está pronta para o acompanhar.",
+                                "Antes de cada sessão, uma breve conversa com o terapeuta ajuda a definir a abordagem mais adequada ao momento que está a viver."
+                            ]
+                        },
+                        {
+                            heading: "O equilíbrio entre corpo e mente",
+                            paragraphs: [
+                                "Os circuitos de água quente e fria, combinados com técnicas de respiração guiada, ajudam a restaurar o equilíbrio entre corpo e mente, deixando-o preparado para aproveitar o resto da sua estadia com energia renovada.",
+                                "Recomendamos reservar a sua sessão com antecedência, especialmente durante os fins de semana, para garantir o horário que melhor se adequa à sua agenda."
+                            ]
+                        }
+                    ]
+                },
+                "4": {
+                    title: "Lugares imperdíveis para visitar perto do hotel",
+                    subtitle: "Um guia rápido para explorar Luanda a partir do Hotel Lameira.",
+                    category: "Viagens",
+                    date: "15 Mai, 2024",
+                    image: "../Media/imagemEsquerdaHome1.jpg",
+                    author: { name: "Equipa Hotel Lameira", role: "Concierge &amp; Experiências", initials: "HL" },
+                    tags: ["Luanda", "Passeios", "Cultura"],
+                    quote: "Explorar os arredores é, muitas vezes, tão memorável quanto a própria estadia.",
+                    sections: [
+                        {
+                            heading: "Uma localização privilegiada",
+                            paragraphs: [
+                                "A localização do Hotel Lameira coloca os nossos hóspedes a poucos minutos de alguns dos pontos mais interessantes de Luanda.",
+                                "Seja a passeio ou em viagem de trabalho, há sempre tempo para uma pequena escapadela entre compromissos."
+                            ]
+                        },
+                        {
+                            heading: "À beira-mar, ao entardecer",
+                            paragraphs: [
+                                "A Marginal de Luanda, com a sua vista deslumbrante sobre a baía, é uma visita obrigatória — especialmente ao entardecer, quando a cidade ganha uma luz completamente diferente.",
+                                "É um dos passeios mais recomendados pela nossa equipa de receção a hóspedes que visitam a cidade pela primeira vez."
+                            ]
+                        },
+                        {
+                            heading: "Cultura e história ao alcance de todos",
+                            paragraphs: [
+                                "Para quem aprecia cultura e história, o Museu Nacional de Antropologia e a Fortaleza de São Miguel oferecem uma janela fascinante sobre o passado e a identidade angolana.",
+                                "A nossa receção está sempre disponível para ajudar a planear excursões personalizadas, incluindo transporte privado, para que possa explorar Luanda com total comodidade durante a sua estadia."
+                            ]
+                        }
+                    ]
+                }
+            };
+
+            var params = new URLSearchParams(window.location.search);
+            var postId = params.get("post") || "1";
+            var post = posts[postId] || posts["1"];
+
+            function countWords(p) {
+                var total = 0;
+                p.sections.forEach(function (section) {
+                    section.paragraphs.forEach(function (paragraph) {
+                        total += paragraph.trim().split(/\s+/).length;
+                    });
+                });
+                return total;
+            }
+
+            var words = countWords(post);
+            var readingMinutes = Math.max(1, Math.round(words / 200));
+
+            document.getElementById("postPageTitle").textContent = post.title + " — Hotel Lameira";
+            document.getElementById("postBreadcrumbTitle").textContent = post.title;
+            document.getElementById("postCategory").textContent = post.category;
+            document.getElementById("postTitle").textContent = post.title;
+            document.getElementById("postSubtitle").textContent = post.subtitle;
+            document.getElementById("postDate").textContent = post.date;
+            document.getElementById("postReadingTime").textContent = readingMinutes + " min de leitura";
+            document.getElementById("postHeroImg").src = post.image;
+            document.getElementById("postHeroImg").alt = post.title;
+            document.getElementById("postAuthorName").textContent = post.author.name;
+            document.getElementById("postAuthorRole").innerHTML = post.author.role;
+            document.getElementById("postAuthorInitials").textContent = post.author.initials;
+
+            var bodyContainer = document.getElementById("postBody");
+            var midpoint = Math.floor(post.sections.length / 2);
+
+            post.sections.forEach(function (section, index) {
+                var h2 = document.createElement("h2");
+                h2.className = "fade-in-up";
+                h2.textContent = section.heading;
+                bodyContainer.appendChild(h2);
+
+                section.paragraphs.forEach(function (paragraphText, pIndex) {
+                    var p = document.createElement("p");
+                    p.className = "fade-in-up";
+                    if (index === 0 && pIndex === 0) {
+                        p.classList.add("drop-cap");
+                    }
+                    p.textContent = paragraphText;
+                    bodyContainer.appendChild(p);
+                });
+
+                if (index === midpoint && post.quote) {
+                    var quote = document.createElement("blockquote");
+                    quote.className = "post-quote fade-in-up";
+                    quote.textContent = post.quote;
+                    bodyContainer.appendChild(quote);
+                }
+            });
+
+            var tagsContainer = document.getElementById("postTags");
+            post.tags.forEach(function (tag) {
+                var span = document.createElement("span");
+                span.className = "post-tag";
+                span.textContent = tag;
+                tagsContainer.appendChild(span);
+            });
+
+            var pageUrl = window.location.href;
+            var encodedUrl = encodeURIComponent(pageUrl);
+            var encodedTitle = encodeURIComponent(post.title);
+
+            document.getElementById("shareFacebook").href = "https://www.facebook.com/sharer/sharer.php?u=" + encodedUrl;
+            document.getElementById("shareTwitter").href = "https://twitter.com/intent/tweet?text=" + encodedTitle + "&url=" + encodedUrl;
+            document.getElementById("shareWhatsapp").href = "https://wa.me/?text=" + encodedTitle + "%20" + encodedUrl;
+
+            ["shareFacebook", "shareTwitter", "shareWhatsapp"].forEach(function (id) {
+                document.getElementById(id).addEventListener("click", function () {
+                    if (window.hotelLameiraTrackEvent) {
+                        window.hotelLameiraTrackEvent("post_share", { method: id.replace("share", ""), post_title: post.title });
+                    }
+                });
+            });
+
+            document.getElementById("shareCopy").addEventListener("click", function () {
+                var btn = this;
+                navigator.clipboard.writeText(pageUrl).then(function () {
+                    var icon = btn.querySelector("i");
+                    icon.className = "fa-solid fa-check";
+                    setTimeout(function () { icon.className = "fa-solid fa-link"; }, 2000);
+                });
+                if (window.hotelLameiraTrackEvent) {
+                    window.hotelLameiraTrackEvent("post_share", { method: "copy_link", post_title: post.title });
+                }
+            });
+
+            var relatedGrid = document.getElementById("relatedPostsGrid");
+            Object.keys(posts).filter(function (id) { return id !== postId; }).forEach(function (id) {
+                var relatedPost = posts[id];
+                var card = document.createElement("a");
+                card.href = "post-detalhe.html?post=" + id;
+                card.className = "related-post-card fade-in-up";
+
+                var img = document.createElement("img");
+                img.className = "related-post-img";
+                img.src = relatedPost.image;
+                img.alt = relatedPost.title;
+                img.loading = "lazy";
+
+                var info = document.createElement("div");
+                info.className = "related-post-info";
+                info.innerHTML = '<span class="related-post-category">' + relatedPost.category + '</span>' +
+                    '<div class="related-post-title">' + relatedPost.title + '</div>';
+
+                card.appendChild(img);
+                card.appendChild(info);
+                relatedGrid.appendChild(card);
+            });
+
+            var progressBar = document.getElementById("readingProgressBar");
+            window.addEventListener("scroll", function () {
+                var scrollTop = window.scrollY;
+                var docHeight = document.body.scrollHeight - window.innerHeight;
+                var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = progress + "%";
+            });
+
+            if ("IntersectionObserver" in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: "0px 0px -30px 0px" });
+
+                document.querySelectorAll(".fade-in-up").forEach(function (el) {
+                    observer.observe(el);
+                });
+            } else {
+                document.querySelectorAll(".fade-in-up").forEach(function (el) {
+                    el.classList.add("is-visible");
+                });
+            }
+
+            if (window.hotelLameiraTrackEvent) {
+                window.hotelLameiraTrackEvent("blog_post_view", {
+                    post_title: post.title,
+                    post_category: post.category
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
