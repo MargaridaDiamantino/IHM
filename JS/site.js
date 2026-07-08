@@ -4,7 +4,7 @@
     const BASE = window.location.pathname.indexOf("/html/") !== -1 ? "../" : "";
     const PAGE_DIR = BASE + "html/";
 
-    const GA_MEASUREMENT_ID = "G-L1G8SX8J9H";
+    const GA_MEASUREMENT_ID = "G-HZM0NK3QKX";
 
     function getHeaderHTML() {
         return `
